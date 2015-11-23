@@ -69,9 +69,14 @@ class DefaultLocaleResolver implements LocaleResolverInterface
                 if (in_array($lang, $availableLocales, true)) {
                     return $lang;
                 }
+                $langShort = explode('_', $lang)[0];
+                if (in_array($langShort, $availableLocales, true)) {
+                    return $langShort;
+                }
             }
         }
 
         return null;
     }
 }
+
